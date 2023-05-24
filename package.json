@@ -1,25 +1,24 @@
 {
   "name": "next-ray",
-  "version": "0.1.0",
-  "private": true,
+  "version": "0.2.0",
   "scripts": {
-    "build": "bun build ./src/index.ts --outdir ./dist --sourcemap=external --external '*'"
+    "build": "bun build ./src/* --outdir ./dist --sourcemap=external --external react"
   },
   "repository": {
     "type": "git",
     "url": "https://github.com/spatie/next-ray"
   },
-  "main": "./dist/index.js",
+  "main": "dist/index.js",
   "type": "module",
   "devDependencies": {
     "@types/react": "^18.2.7",
     "bun-types": "^0.5.0",
-    "node-ray": "^1.20.11",
-    "react": "^18.2.0"
+    "react": "^18.2.0",
+    "@radix-ui/react-slot": "^1.0.1",
+    "node-ray": "^1.20.11"
   },
   "peerDependencies": {
-    "typescript": "^5.0.0",
-    "node-ray": "^1.20.11",
-    "react": "^18.2.0"
+    "react": "^18.2.0",
+    "typescript": "^5.0.0"
   }
 }

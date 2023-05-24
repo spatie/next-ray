@@ -1,9 +1,8 @@
-import { RefObject, useEffect, useRef } from 'react';
-import { ray, Ray } from 'node-ray/web';
+import { Ray, ray } from 'node-ray/web';
 
 Ray.useDefaultSettings({
 	remote_path: 'webpack-internal:\/\/\/(sc_server|sc_client|app-client)\/\.',
-	local_path: '/Users/sam/Development/Spatie/rsc-demo',
+	local_path: process.env.LOCAL_PATH,
 	sending_payload_callback: (instance: any, payloads: { data: { origin: any; }; }[] | { data: any; toArray: (() => { type: string; content: { label: string; }; origin: any; }) | (() => { type: string; content: { color: string; }; origin: any; }) | (() => { type: string; content: { label: string; }; origin: any; }) | (() => { type: string; content: { color: string; }; origin: any; }) | (() => { type: string; content: { label: string; }; origin: any; }) | (() => { type: string; content: { color: string; }; origin: any; }); }[]) => {
 		switch (payloads[0].data.origin.file.match(/webpack-internal:\/\/\/(?<type>sc_server|sc_client|app-client)\/\./).groups.type) {
 			case 'sc_server':
@@ -46,31 +45,4 @@ Ray.useDefaultSettings({
 	},
 });
 
-
-
-export const useRay = (value: any, options = { replace: false, type: 'toJson' }) => {
-	const rayRef = useRef(ray());
-
-	useEffect(() => {
-		if (options.replace !== true) {
-			rayRef.current = ray();
-		}
-
-		rayRef.current[options.type ?? 'toJson'](value);
-	}, [ value ]);
-};
-
-
-export const useRayWithElement = (ref: RefObject<HTMLElement>, dependencies: Array<any> = [], options = { replace: true }) => {
-	const rayRef = useRef(ray());
-
-	useEffect(() => {
-		if (!options.replace) {
-			rayRef.current = ray();
-		}
-
-		if (ref.current) {
-			rayRef.current.html(ref.current.innerHTML);
-		}
-	}, dependencies);
-};
+export default ray;
