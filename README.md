@@ -6,10 +6,8 @@ To install dependencies:
 bun install
 ```
 
-To run:
+To build:
 
 ```bash
-bun run ./src/index.ts
+ bun build ./src/index.ts --outdir ./dist --sourcemap=external --external '*'
 ```
-
-This project was created using `bun init` in bun v0.5.3. [Bun](https://bun.sh) is a fast all-in-one JavaScript runtime.
