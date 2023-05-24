@@ -5,6 +5,10 @@
   "scripts": {
     "build": "bun build ./src/index.ts --outdir ./dist --sourcemap=external --external '*'"
   },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/spatie/next-ray"
+  },
   "main": "./dist/index.js",
   "type": "module",
   "devDependencies": {
