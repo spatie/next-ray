@@ -2664,7 +2664,7 @@ var RemovesRayFrames = class {
     return ((_a = frame.fileName) == null ? undefined : _a.indexOf("node:")) === 0;
   }
   static rayNamespaces() {
-    return ["ray-node/dist", "node-ray/dist", "vue-ray/dist"];
+    return ["ray-node/dist", "node-ray/dist", "vue-ray/dist", "next-ray/dist"];
   }
 };
 __name(RemovesRayFrames, "RemovesRayFrames");

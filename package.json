@@ -1,6 +1,6 @@
 {
   "name": "next-ray",
-  "version": "0.2.1",
+  "version": "0.2.2",
   "scripts": {
     "build": "bun build ./src/* --outdir ./dist --sourcemap=external --external react --external @radix-ui/react-slot --external @permafrost-dev/pretty-format --external axios --external dayjs --external error-stack-parser --external find --external md5 --external stacktrace-gps --external stopwatch-node --external tslib --external uuid --external xml-formatter"
   },
