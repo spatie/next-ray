@@ -1,0 +1,21 @@
+{
+  "name": "next-ray",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "build": "bun build ./src/index.ts --outdir ./dist --sourcemap=external --external '*'"
+  },
+  "main": "./dist/index.js",
+  "type": "module",
+  "devDependencies": {
+    "@types/react": "^18.2.7",
+    "bun-types": "^0.5.0",
+    "node-ray": "^1.20.11",
+    "react": "^18.2.0"
+  },
+  "peerDependencies": {
+    "typescript": "^5.0.0",
+    "node-ray": "^1.20.11",
+    "react": "^18.2.0"
+  }
+}
