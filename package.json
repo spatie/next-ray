@@ -1,21 +1,42 @@
 {
   "name": "next-ray",
-  "version": "0.2.0",
+  "version": "0.2.1",
   "scripts": {
-    "build": "bun build ./src/* --outdir ./dist --sourcemap=external --external react"
+    "build": "bun build ./src/* --outdir ./dist --sourcemap=external --external react --external @radix-ui/react-slot --external @permafrost-dev/pretty-format --external axios --external dayjs --external error-stack-parser --external find --external md5 --external stacktrace-gps --external stopwatch-node --external tslib --external uuid --external xml-formatter"
   },
   "repository": {
     "type": "git",
     "url": "https://github.com/spatie/next-ray"
   },
-  "main": "dist/index.js",
+  "main": "./dist/index.js",
+  "exports": {
+    ".": {
+      "import": "./dist/index.js"
+    },
+    "./client": {
+      "import": "./dist/client.js"
+    }
+  },
   "type": "module",
   "devDependencies": {
     "@types/react": "^18.2.7",
     "bun-types": "^0.5.0",
     "react": "^18.2.0",
-    "@radix-ui/react-slot": "^1.0.1",
     "node-ray": "^1.20.11"
+  },
+  "dependencies": {
+    "@permafrost-dev/pretty-format": "^1.1.5",
+    "@radix-ui/react-slot": "^1.0.1",
+    "axios": "^1.4.0",
+    "dayjs": "^1.11.7",
+    "error-stack-parser": "^2.1.4",
+    "find": "^0.3.0",
+    "md5": "^2.3.0",
+    "stacktrace-gps": "^3.1.2",
+    "stopwatch-node": "^1.1.0",
+    "tslib": "^2.5.2",
+    "uuid": "^9.0.0",
+    "xml-formatter": "^3.4.1"
   },
   "peerDependencies": {
     "react": "^18.2.0",
