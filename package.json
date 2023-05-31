@@ -1,6 +1,6 @@
 {
   "name": "next-ray",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "scripts": {
     "build": "bun build ./src/* --outdir ./dist --sourcemap=external --external react --external @radix-ui/react-slot --external @permafrost-dev/pretty-format --external axios --external dayjs --external error-stack-parser --external find --external md5 --external stacktrace-gps --external stopwatch-node --external tslib --external uuid --external xml-formatter"
   },
@@ -21,8 +21,7 @@
   "devDependencies": {
     "@types/react": "^18.2.7",
     "bun-types": "^0.5.0",
-    "react": "^18.2.0",
-    "node-ray": "^1.21.0"
+    "react": "^18.2.0"
   },
   "dependencies": {
     "@permafrost-dev/pretty-format": "^1.1.5",
@@ -36,7 +35,8 @@
     "stopwatch-node": "^1.1.0",
     "tslib": "^2.5.2",
     "uuid": "^9.0.0",
-    "xml-formatter": "^3.4.1"
+    "xml-formatter": "^3.4.1",
+    "node-ray": "^1.21.0"
   },
   "peerDependencies": {
     "react": "^18.2.0",
