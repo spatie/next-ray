@@ -71,18 +71,23 @@ export function useRay(value: any, options: { replace?: boolean, type?: LogType 
 }
 
 
-export function useRayWithElement(ref: RefObject<HTMLElement>, dependencies: Array<any> = [], options = { replace: true }) {
+export function useRayWithElement(ref?: RefObject<HTMLElement>, dependencies: Array<any> = [], options = { replace: true }) {
 	const rayRef = useRef(ray());
+	const innerRef = useRef<HTMLElement>(null);
 
 	useLayoutEffect(() => {
 		if (!options.replace) {
 			rayRef.current = ray();
 		}
 
-		if (ref.current) {
+		if (ref?.current) {
 			rayRef.current.html(ref.current.innerHTML);
+		} else if (innerRef.current) {
+			rayRef.current.html(innerRef.current.innerHTML);
 		}
 	}, dependencies);
+
+	return innerRef;
 }
 
 export function Ray({ children, dependencies }: PropsWithChildren<{ dependencies?: Array<any>}>) {
