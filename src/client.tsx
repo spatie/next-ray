@@ -81,9 +81,9 @@ export function useRayWithElement(ref?: RefObject<HTMLElement>, dependencies: Ar
 		}
 
 		if (ref?.current) {
-			rayRef.current.html(ref.current.innerHTML);
+			rayRef.current.html(ref.current.outerHTML);
 		} else if (innerRef.current) {
-			rayRef.current.html(innerRef.current.innerHTML);
+			rayRef.current.html(innerRef.current.outerHTML);
 		}
 	}, dependencies);
 
