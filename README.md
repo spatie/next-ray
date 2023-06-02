@@ -4,8 +4,6 @@
 [![Downloads][downloads-img]][downloads-url]
 [![Issues][issues-img]][issues-url]
 
-Learn how to use `next-ray` on our [blog](https://myray.app/blog/4-nextjs-ray-do-you-know-where-my-logs-went)
-
 ![og.png](img%2Fog.png)
 
 ## Support us
