@@ -1,0 +1,65 @@
+import React, { PropsWithChildren, RefObject } from 'react';
+
+type LogType = 'interceptor'
+	| 'client'
+	| 'enable'
+	| 'disable'
+	| 'enabled'
+	| 'disabled'
+	| 'useClient'
+	| 'project'
+	| 'newScreen'
+	| 'clearAll'
+	| 'clearScreen'
+	| 'color'
+	| 'confetti'
+	| 'screenColor'
+	| 'label'
+	| 'size'
+	| 'remove'
+	| 'hide'
+	| 'notify'
+	| 'toJson'
+	| 'json'
+	| 'file'
+	| 'image'
+	| 'die'
+	| 'className'
+	| 'error'
+	| 'event'
+	| 'exception'
+	| 'ban'
+	| 'charles'
+	| 'table'
+	| 'count'
+	| 'clearCounters'
+	| 'pause'
+	| 'stopTime'
+	| 'caller'
+	| 'trace'
+	| 'measure'
+	| 'separator'
+	| 'xml'
+	| 'html'
+	| 'text'
+	| 'date'
+	| 'raw'
+	| 'send'
+	| 'pass'
+	| 'showApp'
+	| 'hideApp'
+	| 'macro'
+	| 'htmlMarkup'
+	| 'if'
+	| 'limit'
+	| 'once'
+	| 'sendCustom';
+
+declare function ray(...args: any[]): any;
+export default ray;
+
+export function useRay(value: any, options?: { replace?: boolean, type?: LogType }): void;
+
+export function useRayWithElement(ref?: RefObject<HTMLElement> | null, dependencies: Array<any> = [], options = { replace: true }): RefObject<HTMLElement>
+
+export function Ray(props: PropsWithChildren<{ dependencies?: Array<any>}>): React.JSX.Element;
