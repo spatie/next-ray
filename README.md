@@ -56,7 +56,7 @@ export default function MyComponent() {
         </button>
     );
 }
-```s
+```
 
 `Ray` — a component that can be wrapped around any part of your app to send it's HTML to your Ray app.
 ```tsx
