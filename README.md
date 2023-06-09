@@ -28,45 +28,79 @@ Add your project dir path as `LOCAL_PATH` to your `.env`
 ![local_path.png](img%2Flocal_path.png)
 
 ## Usage
-In server components:
+This package provides a `ray` function that behaves like the node-ray `ray` function with as much next.js context as possible.
+
+
+From anywhere in your project you can use the ray export to send logs to your Ray app.
 ```tsx
 import ray from 'next-ray';
 
 ray('hello world');
 ```
 
-In client components:
+### client components
+When working in a client react context this package provides some more advanced options.
 
+`useRay` — a hook that sends the value of a variable to your Ray app when it mutates.
 ```tsx
 'use client';
-import ray, { useRay, useRayWithElement, Ray } from 'next-ray';
-import { useEffect } from 'react';
+import { useRay } from 'next-ray/client';
 
 export default function MyComponent() {
     const [count, setCount] = useState(0);
     useRay(count);
-    
-    useEffect(() => {
-        ray('Hello Ray');
-    }, []);
-    
-    const countRef = useRef(null);
-    
-    useRayWithElement(countRef, [count]);
-    
+
+    return (
+        <button onClick={() => setCount(count + 1)}>
+            Increment ({count})
+        </button>
+    );
+}
+```s
+
+`Ray` — a component that can be wrapped around any part of your app to send it's HTML to your Ray app.
+```tsx
+'use client';
+import { Ray } from 'next-ray/client';
+
+export default function MyComponent({ count, increment }) {
     return (
         <Ray dependencies={[count]}>
-            <div>
-                <div ref={countRef}>Current count: {count}</div>
-                <button onClick={() => setCount(count + 1)}>
-                    Click me
-                </button>
-            </div>
+            <button onClick={increment} className="bg-purple-500 rounded-full text-white/80">
+                Increment ({count})
+            </button>
         </Ray>
     );
 }
 ```
 
+`useRayWithElement` — a hook version of the `Ray` component.
+
+```tsx
+'use client';
+import { useRayWithElement } from 'next-ray/client';
+import { forwardRef } from 'react';
+
+export default function MyComponent({ count, increment }) {
+	const ref = useRayWithElement(null, [count]);
+
+	return (
+		<button ref={ref} onClick={increment} className="bg-purple-500 rounded-full text-white/80">
+			Increment ({count})
+		</button>
+	);
+}
+
+const MyForwardRefComponent = forwardRef(function MyComponent({ count, increment }, ref) {
+	useRayWithElement(ref, [count]);
+
+	return (
+		<button ref={ref} onClick={increment} className="bg-purple-500 rounded-full text-white/80">
+			Increment ({count})
+		</button>
+	);
+});
+```
 
 ## Development
 To install dependencies:
